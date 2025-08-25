@@ -1,0 +1,60 @@
+:root {
+    --background: #03122E;
+    --secondary: #004C6C;
+    --accent: #519872;
+}
+
+/*GENERAL*/
+
+* {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 3em;
+    font-weight: 400;
+    color: white;
+}
+
+h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.8em;
+    font-weight: 400;
+    color: white;
+}
+
+h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 100;
+    color: white;
+}
+
+/*HOMEPAGE*/
+
+.HomePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 5%;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+.card {
+    width: 300px;
+    height: 150px;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px black;
+    background-color: var(--background);
+}
