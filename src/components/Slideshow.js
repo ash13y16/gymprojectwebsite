@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom";
 
 const Slideshow = () => {
     const items = [
@@ -20,6 +21,13 @@ const Slideshow = () => {
         setCurrent((prev) => (prev - 1 + items.length) % items.length);
     };
 
+    //Button for workoutpage
+    const navigate = useNavigate();
+
+    const goToWorkout = () => {
+        navigate("/workout");
+    };
+
     return (
         <div style={{
             display: 'flex',
@@ -38,7 +46,9 @@ const Slideshow = () => {
                         <li key={index}>{date}</li>
                     ))}
                 </ul>
-                <button className={'startButton'}>Start</button>
+                <button className={'startButton'} onClick={goToWorkout}>
+                    Start
+                </button>
             </div>
             <button onClick={nextSlide}>
                 &gt;

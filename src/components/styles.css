@@ -104,6 +104,20 @@ li {
     padding-left: 20px;
 }
 
+/*WORKOUT PAGE*/
+
+.WorkoutPage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.exitButton {
+    position: absolute;
+    top: 6%;
+    right: 6%;
+}
+
 /*IPHONE VIEW SPECIFIC*/
 
 @media (max-width: 960px) {
