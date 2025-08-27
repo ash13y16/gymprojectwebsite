@@ -110,16 +110,29 @@ li {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: var(--background);
+    align-items: center;
+    justify-content: space-between;
+    padding: 10% 0;
 }
 
 .exitButton {
     position: absolute;
     top: 6%;
-    right: 6%;
+    left: 6%;
+}
+
+.restTimer {
+    border: 2px solid white;
+    border-radius: 2px;
+    padding: 10px 20px;
+    margin-top: 100px;
 }
 
 /*IPHONE VIEW SPECIFIC*/
 
 @media (max-width: 960px) {
-
+    .WorkoutPage {
+        padding: 35% 0 20% 0;
+    }
 }
