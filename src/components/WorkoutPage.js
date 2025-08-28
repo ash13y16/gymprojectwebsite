@@ -1,5 +1,6 @@
-import './styles.css';
+import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import './styles.css';
 
 function WorkoutPage() {
 
@@ -9,6 +10,27 @@ function WorkoutPage() {
     const exit = () => {
         navigate("/");
     };
+
+    //Timer
+    function Timer() {
+        const [count, setCount] = useState(0);
+
+        useEffect(() => {
+            if (count >= 600) return;
+
+            const timer = setInterval(() => {
+                setCount((prev) => prev + 1);
+            }, 1000)
+
+            return () => clearInterval(timer);
+        }, [count])
+
+        const min = Math.floor(count / 60);
+        const secs = count % 60;
+        const formatted = `${min}:${secs.toString().padStart(2, "0")}`;
+
+        return <h1>{formatted}</h1>
+    }
 
     return (
         <div className={'WorkoutPage'}>
@@ -20,9 +42,7 @@ function WorkoutPage() {
                 <h2>Sets</h2>
                 <h2>Reps</h2>
             </div>
-            <button className={'restTimer'}>
-                Rest
-            </button>
+            <Timer />
             <button className={'startButton'} style={{position: "relative", bottom: 0}}>
                 Start
             </button>
