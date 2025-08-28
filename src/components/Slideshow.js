@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
+import Card, {getCards} from "./Card";
+
+new Card("Day 1", "Strength", ["Push-ups", "Squats", "Plank"]).addCard();
+new Card("Day 2", "Cardio", ["Running", "Jump Rope"]).addCard();
+new Card("Day 3", "Mobility", ["Stretching", "Yoga"]).addCard();
+
 
 const Slideshow = () => {
-    const items = [
-        { day: "Sunday",
-            type: "Chest & Triceps",
-            exercises: ["Bench Press", "Shoulder Press"] },
-        { day: "Monday",
-            type: "Back & Biceps",
-            exercises: ["Pull Ups"] }
-    ];
+    const items = getCards();
 
     const [current, setCurrent] = useState(0);
 
