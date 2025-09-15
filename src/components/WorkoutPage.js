@@ -11,8 +11,16 @@ function WorkoutPage() {
         navigate("/");
     };
 
+    //Start / End button
+    const [started, setStarted] = useState(false);
+
+    function startButton() {
+        setStarted(!started);
+    }
+
     //Timer
     function Timer() {
+
         const [count, setCount] = useState(0);
 
         useEffect(() => {
@@ -25,11 +33,16 @@ function WorkoutPage() {
             return () => clearInterval(timer);
         }, [count])
 
-        const min = Math.floor(count / 60);
-        const secs = count % 60;
-        const formatted = `${min}:${secs.toString().padStart(2, "0")}`;
 
-        return <h1>{formatted}</h1>
+        if (started) {
+            return <h1>-- : --</h1>
+        } else {
+            const min = Math.floor(count / 60);
+            const secs = count % 60;
+            const formatted = `${min}:${secs.toString().padStart(2, "0")}`;
+
+            return <h1>{formatted}</h1>
+        }
     }
 
     return (
@@ -43,8 +56,11 @@ function WorkoutPage() {
                 <h2>Reps</h2>
             </div>
             <Timer />
-            <button className={'startButton'} style={{position: "relative", bottom: 0}}>
-                Start
+            <button
+                className={'startButton'}
+                style={{position: "relative", bottom: 0}}
+                onClick={startButton()}>
+                {started ? "End" : "Start"}
             </button>
         </div>
     );
